@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mintbase API Examples</title>
-        <meta name="description" content="Mintbase API examples" />
+        <title>Mintbase API Reader</title>
+        <meta name="description" content="Mintbase API Reader" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
