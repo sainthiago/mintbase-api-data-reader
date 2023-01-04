@@ -1,9 +1,9 @@
-import { tokenOwner } from "@mintbase-js/data";
 import { debounce } from "lodash";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
+import { tokenOwner } from "@mintbase-js/data";
 
 export default function Home() {
   const [tokenId, setTokenId] = useState("");
