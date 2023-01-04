@@ -54,6 +54,7 @@ export default function Home() {
               <input
                 className={styles.input}
                 onChange={debounce(async (e) => {
+                  setOwner(null);
                   setTokenId(e.target.value);
                 }, 500)}
                 placeholder="tokenId"
@@ -61,6 +62,7 @@ export default function Home() {
               <input
                 className={styles.input}
                 onChange={debounce(async (e) => {
+                  setOwner(null);
                   setContractAddress(e.target.value);
                 }, 500)}
                 placeholder="contractAddress"
@@ -78,11 +80,13 @@ export default function Home() {
               Run
             </button>
           </div>
-          <p className={styles.description} style={{ marginTop: "24px" }}>
-            {owner?.error
-              ? `There was an error, please try again.`
-              : `Owner: ${owner?.data ? owner.data : "none"}`}
-          </p>
+          {owner ? (
+            <p className={styles.description} style={{ marginTop: "24px" }}>
+              {owner?.error
+                ? `There was an error, please try again.`
+                : `Owner: ${owner?.data ? owner.data : "none"}`}
+            </p>
+          ) : null}
         </div>
       </main>
     </>
