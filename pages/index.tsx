@@ -36,7 +36,7 @@ export default function Home() {
             style={{ marginBottom: "36px" }}
           >
             <p style={{ marginBottom: "12px" }}>
-              Choose the query you want to test:
+              Select the method:
             </p>
             <input
               className={styles.input}
@@ -49,7 +49,7 @@ export default function Home() {
             />
           </div>
           <div className={styles.description}>
-            <p style={{ marginBottom: "12px" }}>Please enter the arguments:</p>
+            <p style={{ marginBottom: "12px" }}>Enter the arguments:</p>
             <div>
               <input
                 className={styles.input}
