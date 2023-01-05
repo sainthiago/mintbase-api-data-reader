@@ -1,15 +1,17 @@
-import { debounce } from "lodash";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import TokenOwner from "../components/TokenOwner/TokenOwner";
+import TokenProvenance from "../components/TokenProvenance/TokenProvenance";
 import styles from "../styles/Home.module.css";
-import { tokenOwner } from "@mintbase-js/data";
+
+const methods = [
+  { name: "tokenOwner", component: <TokenOwner /> },
+  { name: "tokenProvenance", component: <TokenProvenance /> },
+];
 
 export default function Home() {
-  const [tokenId, setTokenId] = useState("");
-  const [contractAddress, setContractAddress] = useState("");
-  const [owner, setOwner] = useState<any>(null);
-
+  const [selectedMethod, setSelectedMethod] = useState("tokenOwner");
   return (
     <>
       <Head>
@@ -35,58 +37,24 @@ export default function Home() {
             className={`${styles.description}`}
             style={{ marginBottom: "36px" }}
           >
-            <p style={{ marginBottom: "12px" }}>
-              Select the method:
-            </p>
-            <input
+            <p style={{ marginBottom: "12px" }}>Select the method:</p>
+            <select
+              name="methods"
+              id="methods"
               className={styles.input}
               style={{ width: "100%" }}
-              onChange={debounce(async (e) => {
-                setTokenId(e.target.value);
-              }, 500)}
-              placeholder="tokenOwner"
-              disabled
-            />
-          </div>
-          <div className={styles.description}>
-            <p style={{ marginBottom: "12px" }}>Enter the arguments:</p>
-            <div>
-              <input
-                className={styles.input}
-                onChange={debounce(async (e) => {
-                  setOwner(null);
-                  setTokenId(e.target.value);
-                }, 500)}
-                placeholder="tokenId"
-              />
-              <input
-                className={styles.input}
-                onChange={debounce(async (e) => {
-                  setOwner(null);
-                  setContractAddress(e.target.value);
-                }, 500)}
-                placeholder="contractAddress"
-              />
-            </div>
-          </div>
-          <div className={styles.description}>
-            <button
-              className={styles.button}
-              disabled={!tokenId || !contractAddress}
-              onClick={async () =>
-                setOwner(await tokenOwner(tokenId, contractAddress))
-              }
+              onChange={(e) => setSelectedMethod(e.target.value)}
             >
-              Run
-            </button>
+              {methods.map((method) => {
+                return (
+                  <option key={method.name} value={method.name}>
+                    {method.name}
+                  </option>
+                );
+              })}
+            </select>
           </div>
-          {owner ? (
-            <p className={styles.description} style={{ marginTop: "24px" }}>
-              {owner?.error
-                ? `There was an error, please try again.`
-                : `Owner: ${owner?.data ? owner.data : "-"}`}
-            </p>
-          ) : null}
+          {methods.find((method) => method.name === selectedMethod)?.component}
         </div>
       </main>
     </>
