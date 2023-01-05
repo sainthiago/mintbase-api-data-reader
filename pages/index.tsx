@@ -84,7 +84,7 @@ export default function Home() {
             <p className={styles.description} style={{ marginTop: "24px" }}>
               {owner?.error
                 ? `There was an error, please try again.`
-                : `Owner: ${owner?.data ? owner.data : "none"}`}
+                : `Owner: ${owner?.data ? owner.data : "-"}`}
             </p>
           ) : null}
         </div>
