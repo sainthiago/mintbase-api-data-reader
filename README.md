@@ -5,3 +5,4 @@ small app that allows the user to test mintbase-js data layer to fetch queries a
 supported methods:
 
   - tokenOwner
+  - tokenProvenance
