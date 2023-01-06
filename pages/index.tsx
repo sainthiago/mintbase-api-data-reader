@@ -2,12 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import TokenOwner from "../components/TokenOwner/TokenOwner";
+import TokenOwnersByMetadataId from "../components/TokenOwnersByMetadataId/TokenOwnersByMetadataId";
 import TokenProvenance from "../components/TokenProvenance/TokenProvenance";
 import styles from "../styles/Home.module.css";
 
 const methods = [
   { name: "tokenOwner", component: <TokenOwner /> },
   { name: "tokenProvenance", component: <TokenProvenance /> },
+  { name: "tokenOwnersByMetadataId", component: <TokenOwnersByMetadataId /> },
 ];
 
 export default function Home() {
@@ -32,7 +34,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div>
+        <div className={styles.centerElm}>
           <div
             className={`${styles.description}`}
             style={{ marginBottom: "36px" }}

@@ -1,12 +1,11 @@
-import { tokenProvenance } from "@mintbase-js/data";
+import { tokenOwnersByMetadataId } from "@mintbase-js/data";
 import { debounce } from "lodash";
 import { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import RunButton from "../RunButton/RunButton";
 
-const TokenProvenance = () => {
-  const [tokenId, setTokenId] = useState("");
-  const [contractAddress, setContractAddress] = useState("");
+const TokenOwnersByMetadataId = () => {
+  const [metadataId, setMetadataId] = useState("");
   const [pagination, setPagination] = useState({ limit: NaN, offset: NaN });
 
   return (
@@ -17,19 +16,10 @@ const TokenProvenance = () => {
           <input
             className={styles.input}
             onChange={debounce(async (e) => {
-              setTokenId(e.target.value);
+              setMetadataId(e.target.value);
             }, 500)}
-            placeholder="tokenId"
+            placeholder="metadataId"
           />
-          <input
-            className={styles.input}
-            onChange={debounce(async (e) => {
-              setContractAddress(e.target.value);
-            }, 500)}
-            placeholder="contractAddress"
-          />
-        </div>
-        <div>
           <input
             className={styles.input}
             onChange={debounce(async (e) => {
@@ -48,11 +38,11 @@ const TokenProvenance = () => {
       </div>
 
       <RunButton
-        disabled={!tokenId || !contractAddress}
-        method={tokenProvenance(tokenId, contractAddress, pagination)}
+        disabled={!metadataId}
+        method={tokenOwnersByMetadataId(metadataId, pagination)}
       />
     </>
   );
 };
 
-export default TokenProvenance;
+export default TokenOwnersByMetadataId;

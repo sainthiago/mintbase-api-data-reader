@@ -65,6 +65,7 @@
   color: black;
   border-color: black;
   font-family: var(--font-mono);
+  width: 100%;
 }
 
 .input:disabled {
@@ -92,6 +93,10 @@
   color: blue;
 }
 
+.centerElm {
+  width: 358px;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
   .content {
@@ -112,5 +117,9 @@
   .center::before {
     transform: none;
     height: 300px;
+  }
+
+  .centerElm {
+    width: 300px;
   }
 }
