@@ -7,3 +7,4 @@ supported methods:
   - tokenOwner
   - tokenProvenance
   - tokenOwnersByMetadataId
+  - tokenById
