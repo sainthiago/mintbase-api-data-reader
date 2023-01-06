@@ -11,6 +11,10 @@ const RunButton = ({
 }) => {
   const [localFile, setLocalFile] = useState<Blob | null>(null);
 
+  useEffect(() => {
+    setLocalFile(null);
+  }, [disabled]);
+
   return (
     <>
       <div className={styles.description}>
@@ -27,7 +31,7 @@ const RunButton = ({
           Run
         </button>
       </div>
-      <JsonFile dataFile={localFile} />
+      {!disabled ? localFile ? <JsonFile dataFile={localFile} /> : null : null}
     </>
   );
 };
