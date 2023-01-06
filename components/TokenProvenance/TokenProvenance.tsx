@@ -2,12 +2,13 @@ import { tokenProvenance } from "@mintbase-js/data";
 import { debounce } from "lodash";
 import { useState } from "react";
 import styles from "../../styles/Home.module.css";
+import JsonFile from "../JsonFile/JsonFile";
 
 const TokenProvenance = () => {
   const [tokenId, setTokenId] = useState("");
   const [contractAddress, setContractAddress] = useState("");
   const [pagination, setPagination] = useState({ limit: NaN, offset: NaN });
-  const [file, setFile] = useState<Blob | null>(null);
+  const [localFile, setLocalFile] = useState<Blob | null>(null);
 
   return (
     <>
@@ -17,7 +18,7 @@ const TokenProvenance = () => {
           <input
             className={styles.input}
             onChange={debounce(async (e) => {
-              setFile(null);
+              setLocalFile(null);
               setTokenId(e.target.value);
             }, 500)}
             placeholder="tokenId"
@@ -25,7 +26,7 @@ const TokenProvenance = () => {
           <input
             className={styles.input}
             onChange={debounce(async (e) => {
-              setFile(null);
+              setLocalFile(null);
               setContractAddress(e.target.value);
             }, 500)}
             placeholder="contractAddress"
@@ -35,7 +36,7 @@ const TokenProvenance = () => {
           <input
             className={styles.input}
             onChange={debounce(async (e) => {
-              setFile(null);
+              setLocalFile(null);
               setPagination({ ...pagination, limit: e.target.value });
             }, 500)}
             placeholder="limit?"
@@ -43,7 +44,7 @@ const TokenProvenance = () => {
           <input
             className={styles.input}
             onChange={debounce(async (e) => {
-              setFile(null);
+              setLocalFile(null);
               setPagination({ ...pagination, offset: e.target.value });
             }, 500)}
             placeholder="offset?"
@@ -60,27 +61,13 @@ const TokenProvenance = () => {
             );
             const blob = new Blob([fileData], { type: "text/plain" });
 
-            setFile(blob);
+            setLocalFile(blob);
           }}
         >
           Run
         </button>
       </div>
-      {file ? (
-        <a
-          className={`${styles.description} ${styles.a}`}
-          style={{ marginTop: "24px" }}
-          onClick={() => {
-            const url = URL.createObjectURL(file);
-            const link = document.createElement("a");
-            link.download = "data.json";
-            link.href = url;
-            link.click();
-          }}
-        >
-          Download JSON File
-        </a>
-      ) : null}
+      <JsonFile dataFile={localFile} />
     </>
   );
 };
