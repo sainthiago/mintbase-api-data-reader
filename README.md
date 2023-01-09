@@ -8,3 +8,4 @@ supported methods:
   - tokenProvenance
   - tokenOwnersByMetadataId
   - tokenById
+  - ownedStores
