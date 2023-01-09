@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import TokenById from "../components/tokenById/tokenById";
+import OwnedStores from "../components/OwnedStores/OwnedStores";
+import TokenById from "../components/TokenById/TokenById";
 import TokenOwner from "../components/TokenOwner/TokenOwner";
 import TokenOwnersByMetadataId from "../components/TokenOwnersByMetadataId/TokenOwnersByMetadataId";
 import TokenProvenance from "../components/TokenProvenance/TokenProvenance";
@@ -12,6 +13,7 @@ const methods = [
   { name: "tokenProvenance", component: <TokenProvenance /> },
   { name: "tokenOwnersByMetadataId", component: <TokenOwnersByMetadataId /> },
   { name: "tokenById", component: <TokenById /> },
+  { name: "ownedStores", component: <OwnedStores /> },
 ];
 
 export default function Home() {

@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import RunButton from "../RunButton/RunButton";
 
-const TokenOwner = () => {
+const OwnedStores = () => {
   const [ownerId, setOwnerId] = useState("");
 
   return (
@@ -30,4 +30,4 @@ const TokenOwner = () => {
   );
 };
 
-export default TokenOwner;
+export default OwnedStores;
