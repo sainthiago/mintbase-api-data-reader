@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import NearPrice from "../components/nearPrice/nearPrice";
 import OwnedStores from "../components/OwnedStores/OwnedStores";
+import StoreData from "../components/StoreData/StoreData";
 import TokenById from "../components/TokenMetadataById/TokenMetadataById";
 import TokenOwner from "../components/TokenOwner/TokenOwner";
 import TokenOwnersByMetadataId from "../components/TokenOwnersByMetadataId/TokenOwnersByMetadataId";
@@ -15,6 +16,7 @@ const methods = [
   { name: "tokenOwnersByMetadataId", component: <TokenOwnersByMetadataId /> },
   { name: "tokenById", component: <TokenById /> },
   { name: "ownedStores", component: <OwnedStores /> },
+  { name: "storeData", component: <StoreData /> },
   { name: "nearPrice", component: <NearPrice /> },
 ];
 
