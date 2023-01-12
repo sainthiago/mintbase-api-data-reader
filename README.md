@@ -11,3 +11,4 @@ supported methods:
   - ownedStores 
   - storeData
   - nearPrice
+  - storeNfts
