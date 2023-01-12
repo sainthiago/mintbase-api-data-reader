@@ -1,16 +1,12 @@
-import { ownedStores } from "@mintbase-js/data";
+import { nearPrice } from "@mintbase-js/data";
 import RunButton from "../RunButton/RunButton";
 
-const OwnedStores = () => {
-
+const NearPrice = () => {
   return (
     <>
-      <RunButton
-      disabled={false}
-        method={ownedStores(ownerId)}
-      />
+      <RunButton disabled={false} method={nearPrice()} />
     </>
   );
 };
 
-export default OwnedStores;
+export default NearPrice;
