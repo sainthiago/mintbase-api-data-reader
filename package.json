@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mintbase-js/data": "^0.1.0-alpha.58",
+    "@mintbase-js/data": "^0.1.0-alpha-14",
     "@next/font": "13.1.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
