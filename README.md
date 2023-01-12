@@ -9,3 +9,5 @@ supported methods:
   - tokenOwnersByMetadataId
   - tokenById
   - ownedStores 
+  - storeData
+  - nearPrice
