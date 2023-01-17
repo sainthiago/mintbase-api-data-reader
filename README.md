@@ -12,3 +12,4 @@ supported methods:
   - storeData
   - nearPrice
   - storeNfts
+  - metadataByMetadataId

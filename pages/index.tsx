@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import MetadataByMetadataId from "../components/metadataByMetadataId/metadataByMetadataId";
 import NearPrice from "../components/nearPrice/nearPrice";
 import OwnedStores from "../components/OwnedStores/OwnedStores";
 import StoreData from "../components/StoreData/StoreData";
@@ -20,6 +21,7 @@ const methods = [
   { name: "storeData", component: <StoreData /> },
   { name: "storeNfts", component: <StoreNfts /> },
   { name: "nearPrice", component: <NearPrice /> },
+  { name: "metadataByMetadataId", component: <MetadataByMetadataId /> },
 ];
 
 export default function Home() {
