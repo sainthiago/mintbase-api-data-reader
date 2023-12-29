@@ -55,7 +55,7 @@ export default function Home() {
             <select
               name="methods"
               id="methods"
-              className={styles.input}
+              className={`${styles.input} ${styles.select}`}
               style={{ width: "100%" }}
               onChange={(e) => setSelectedMethod(e.target.value)}
             >
